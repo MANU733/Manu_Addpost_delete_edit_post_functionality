@@ -1,0 +1,88 @@
+.outerDivision
+{
+    display: flex;
+    padding: 20px;
+    font-size: 13px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.tableName
+{
+    width:50%;
+}
+.useName
+{
+    display: flex;
+    font-size: 13px;
+    padding: 25px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.nameList
+{
+    width: 50%;
+}
+.inputbaseouterdiv
+{
+    padding:10px;
+    margin:20px;
+}
+.buttonX{
+height: 35px;
+width: 35px;
+margin-left: 10px;
+}
+.buttonSave
+{
+    height: 35px;
+    width: 65px;
+    margin-left: 10px;
+}
+.errorDisp
+{
+    color:red;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    margin-left:20px;
+}
+.editInput
+{
+    height: 30px;
+
+}
+.edit
+{
+    border: none;
+    height: 30px;
+    border-right: solid 1px darkgrey;
+    background-color: white;
+    color: royalblue;
+}
+.delete
+{
+    border: none;
+    height: 30px;
+    background-color: white;
+    color: royalblue;
+}
+.addUser
+{
+    font-size: 13px;
+    height: 35px;
+    padding: 10px;
+    width: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: white;
+    color: darkgrey;
+    border: solid 1px darkgray;
+}
+.createUser
+{
+    font-size: 13px;
+    font-family: Arial, Helvetica, sans-serif;
+    height: 50px;
+    width: 150px;
+    margin: 25px;
+    background-color: white;
+    color: darkgrey;
+    border-radius: 10px;
+    border: solid 1px darkgray;
+}
