@@ -7,7 +7,7 @@ import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import Users from '../../container/useName.js';
-import Todo from '../../components/todos/index.js';
+import Todo from '../../container/secretwordgame.js'
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;

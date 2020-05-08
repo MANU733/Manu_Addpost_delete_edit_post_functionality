@@ -10,6 +10,8 @@ const userReducer = (state =[], action) => {
                     const index=state.findIndex((a=>a.id===action.payload.id));
                     state=[...state.slice(0,index),...state.slice(index+1)];
                     return [...state,action.payload];
+                    case actionType.SECRETWORD:
+                        return [...state, action.payload]
         default:
             return state;
     }
