@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import {guessedwordredux} from '../action/secretword';
+import {guessedwordredux,resetgame} from '../action/secretword';
 import Gamedashboard from '../components/todos/gameDashboard'
 
 const mapStateToProps=(state)=>{
@@ -11,7 +11,8 @@ return{
 
 const mapsDispatchToProps=(dispatch)=>{
     return{
-        guessedwordredux:(guessedword)=>dispatch(guessedwordredux(guessedword))
+        guessedwordredux:(guessedword)=>dispatch(guessedwordredux(guessedword)),
+        resetgame:()=>dispatch(resetgame())
     }
 }
 export default connect(mapStateToProps,mapsDispatchToProps)(Gamedashboard);

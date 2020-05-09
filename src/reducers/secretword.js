@@ -10,6 +10,10 @@ const secretReducer = (state = initialstate, action) => {
             return { ...state, secretword: action.payload }
         }
 
+        case actionType.RESET:{
+            return{ ...state,secretword:''}
+        }
+
         default:
             return { ...state }
     }

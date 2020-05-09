@@ -67,7 +67,7 @@ export default function ScrollableTabsButtonAuto() {
           scrollButtons="auto"
           aria-label="scrollable auto tabs example"
         >
-          <Tab label="Todos" {...a11yProps(0)} />
+          <Tab label="Play Game" {...a11yProps(0)} />
           <Tab label="Users" {...a11yProps(1)} />
         </Tabs>
       </AppBar>

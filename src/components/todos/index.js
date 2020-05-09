@@ -17,6 +17,7 @@ const Todo =(props)=>
         else
         {
               props.secretWord(secretword);
+              setError("")
               setwordstored('You have successfully set the secret word')
         }
     }
@@ -24,8 +25,8 @@ const Todo =(props)=>
         setsecretword(e.target.value)
     }
 
-    const linktogame=secretwordstored?(<Link to='/gamedashboard'>Click here to proceed to  game dashboard</Link>):"";
-    const rendersearch=props.secretwordredux?'':(<form onSubmit={handleSubmit}>
+    const linktogame=props.secretwordredux!==""?(<Link to='/gamedashboard'>Click here to proceed to  game dashboard</Link>):"";
+    const rendersearch=props.secretwordredux!==""?'':(<form onSubmit={handleSubmit}>
         <input 
         type="text"
         onChange={handleChange}
@@ -36,8 +37,10 @@ const Todo =(props)=>
     const gamedashboard=props.history.location.pathname!=='/gamedashboard'?
     (<>
     <h3>Guess word Game:</h3>
-    <h5>Set the secret word</h5>
-    <h6>{secretwordstored||Errors}</h6>
+    {props.secretwordredux===""?(<h5>Set the secret word</h5>):""}
+    
+    {props.secretwordredux!==""?secretwordstored:""}
+    <h6>{Errors}</h6>
     {linktogame}
     {rendersearch}
     </>) : (<Gamedashboard/>)

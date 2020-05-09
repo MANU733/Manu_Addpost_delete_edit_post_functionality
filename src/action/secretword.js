@@ -15,3 +15,9 @@ export const guessedwordredux=(guessedword)=>{
         payload:guessedword
     }
 }
+
+export const resetgame=()=>{
+    return{
+        type:actionType.RESET
+    }
+}

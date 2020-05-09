@@ -5,6 +5,10 @@ const guessedwordreducer = (state = [], action) => {
         case actionType.GUESSEDWORD: {
             return [...state, action.payload]
         }
+        case actionType.RESET:{
+            return [];
+        }
+
         default:
             return state;
     }

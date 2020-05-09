@@ -1,12 +1,13 @@
 import React from 'react';
+import { withRouter } from 'react-router';
 
 const Gamedashboard = (props) => {
     const [guessedword, setguessedword] = React.useState('');
     const [error, seterror] = React.useState('');
     const secretwordlogic = new Set(props.secretwordredux.split(''))
-    const guessedwordlogic = new Set(guessedword.split(''))
-    const res = [...secretwordlogic].filter(l => guessedwordlogic.has(l))
-
+    
+   
+console.log(props)
     const handlechange = (e) => {
         setguessedword(e.target.value)
     }
@@ -22,7 +23,17 @@ const Gamedashboard = (props) => {
 
     }
 
-    const rendercontent=guessedword!==props.secretwordredux?(
+    const newgame=()=>{
+
+        props.history.push('/')
+        props.resetgame();
+
+    }
+
+  
+
+    const rendercontent=guessedword!==props.secretwordredux ?
+    (
         <>
             <h3>Start guessing the word</h3>
             <form onSubmit={handleSubmit}>
@@ -35,13 +46,28 @@ const Gamedashboard = (props) => {
             {error}
     
             <><h3>Letters Matching with secret word:</h3>
-                <h3>{res.length}</h3></>
+               
+    {
+        props.guessword.map(v=>{
+            const guessedwordlogic = new Set(v.split(''));
+            const res = [...secretwordlogic].filter(l => guessedwordlogic.has(l))
+            return (
+                <div className="flex">
+                 
+            <h3 className="p-5">{v}</h3>
+            
+            <h3>{res.length}</h3></div>
+            )
+        })
+    }</>
     
-    
-        </>
-        ):(<h3>yayyyy!!!! u guessed the secret word</h3>)
+        </>):(
+        <>
+        <h3>yayyyy!!!! u guessed the secret word</h3>
+        <button onClick={newgame}>click here to play again</button>
+        </>)
 
     return rendercontent;
     
 }
-export default Gamedashboard;
+export default withRouter(Gamedashboard);
