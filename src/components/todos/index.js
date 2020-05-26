@@ -2,6 +2,7 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import { withRouter } from 'react-router';
 import Gamedashboard from '../../container/gamedahboard'
+import JestExample from './jestExample';
 const Todo =(props)=>
 {
     console.log(props.history.location.pathname)

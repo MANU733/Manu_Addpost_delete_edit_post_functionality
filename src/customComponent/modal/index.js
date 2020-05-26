@@ -41,11 +41,11 @@ export default function SimpleModal() {
   const handleClose = () => {
     setOpen(false);
   };
-
+const m=1233;
   const body = (
     <div style={modalStyle} className={classes.paper}>
       <h2 id="simple-modal-title">Create users</h2>
-      <Createusers/>
+      <Createusers manu="manu" sagar={m}/>
     </div>
   );
 
@@ -56,6 +56,7 @@ export default function SimpleModal() {
       </button>
       <Modal
         open={open}
+        data-test="sample"
         onClose={handleClose}
         aria-labelledby="simple-modal-title"
         aria-describedby="simple-modal-description"
