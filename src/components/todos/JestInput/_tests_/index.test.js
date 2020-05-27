@@ -17,7 +17,6 @@ describe('A', () => {
     }
     const store = createStore(guessedwordreducer,{...props});
      const wrapper=shallow(<Input {...props} store={store}/>).dive().dive();
-     console.log(wrapper.debug())
    expect(wrapper.exists()).toBe(true)
  })
 
@@ -27,7 +26,21 @@ describe('A', () => {
     }
     const store = createStore(guessedwordreducer,{...props});
      const wrapper=shallow(<Input {...props} store={store}/>).dive().dive();
-     console.log(wrapper.debug())
    expect(wrapper.exists()).toBe(true)
  })
 })
+
+describe('Redux component props', () => {
+ 
+   test('Redux prop',()=>{
+      let props={
+         success:true
+      }
+      const store = createStore(guessedwordreducer,{...props});
+       const wrapper=shallow(<Input {...props} store={store}/>).dive();
+     const res=wrapper.find('Input').get(0).props.success;
+     expect(res).toBe(true)
+   })
+
+  })
+  

@@ -8,10 +8,6 @@ import thunk from 'redux-thunk';
 import JestApi from '../../reducers/jestApi';
 import { Apicall } from '../jestAxios';
 
-
-
-
-
 describe('API', () => {
 
     beforeEach(() => {
@@ -25,7 +21,7 @@ describe('API', () => {
     const expected = {
         "userId": 1,
         "id": 1,
-        "completed": false
+        "completed": true
     }
 
 
@@ -40,7 +36,7 @@ describe('API', () => {
                 response: {
                     "userId": 1,
                     "id": 1,
-                    "completed": false
+                    "completed": true
                 }
             });
         });
