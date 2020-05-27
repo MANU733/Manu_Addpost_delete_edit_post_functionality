@@ -66,4 +66,22 @@ describe('Redux component props', () => {
     
    })
 
+
+   test('mock onclick',()=>{
+
+      let resetgamemock=jest.fn()
+      let props={
+         success:true,
+         resetgame:resetgamemock
+      }
+      const store = createStore(guessedwordreducer,{...props});
+      
+      const wrapper=shallow(<Input {...props} store={store}/>).dive().dive();
+      console.log(wrapper.debug())
+     const findbyattr=wrapper.find('button');
+     findbyattr.simulate('click')
+     expect(resetgamemock.mock.calls.length).toBe(0);
+    
+   })
+
   })

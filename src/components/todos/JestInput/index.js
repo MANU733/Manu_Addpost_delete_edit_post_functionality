@@ -17,6 +17,7 @@ const Input = (props) => {
                 />
                 <button 
                 type="button"
+                onClick={()=>props.resetgame()}
                 >submit</button>
             </form>
         </div>)
