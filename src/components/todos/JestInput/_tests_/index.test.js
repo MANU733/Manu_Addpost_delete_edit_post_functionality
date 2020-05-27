@@ -44,3 +44,26 @@ describe('Redux component props', () => {
 
   })
   
+
+  describe('Mock the function', () => {
+ 
+
+   test('mock',()=>{
+
+      let loadSpinnermock=jest.fn()
+      let props={
+         success:true,
+         loadSpinner:loadSpinnermock
+      }
+      const store = createStore(guessedwordreducer,{...props});
+      
+      const wrapper=shallow(<Input {...props} store={store}/>).dive().dive();
+      console.log(wrapper.debug())
+     const findbyattr=wrapper.find('form');
+     findbyattr.simulate('submit',{preventDefault(){}})
+
+     expect(loadSpinnermock.mock.calls.length).toBe(1);
+    
+   })
+
+  })
