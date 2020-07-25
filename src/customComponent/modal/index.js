@@ -1,27 +1,18 @@
+
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
+import Backdrop from '@material-ui/core/Backdrop';
+import Fade from '@material-ui/core/Fade';
 import Createusers from '../../container/createUser.js';
 
-function rand() {
-  return Math.round(Math.random() * 20) - 10;
-}
-
-function getModalStyle() {
-  const top = 50 + rand();
-  const left = 50 + rand();
-
-  return {
-    top: `${top}%`,
-    left: `${left}%`,
-    transform: `translate(-${top}%, -${left}%)`,
-  };
-}
-
 const useStyles = makeStyles((theme) => ({
+  modal: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
   paper: {
-    position: 'absolute',
-    width: 400,
     backgroundColor: theme.palette.background.paper,
     border: '2px solid #000',
     boxShadow: theme.shadows[5],
@@ -29,9 +20,8 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SimpleModal() {
+export default function TransitionsModal() {
   const classes = useStyles();
-  const [modalStyle] = React.useState(getModalStyle);
   const [open, setOpen] = React.useState(false);
 
   const handleOpen = () => {
@@ -41,27 +31,31 @@ export default function SimpleModal() {
   const handleClose = () => {
     setOpen(false);
   };
-const m=1233;
-  const body = (
-    <div style={modalStyle} className={classes.paper}>
-      <h2 id="simple-modal-title">Create users</h2>
-      <Createusers manu="manu" sagar={m}/>
-    </div>
-  );
 
   return (
     <div>
-      <button type="button" onClick={handleOpen} className="createUser">
-        Create Users
+      <button type="button" className="createUser" onClick={handleOpen}>
+        Create User
       </button>
       <Modal
         open={open}
+        className={classes.modal}
         data-test="sample"
         onClose={handleClose}
         aria-labelledby="simple-modal-title"
         aria-describedby="simple-modal-description"
+        closeAfterTransition
+        BackdropComponent={Backdrop}
+        BackdropProps={{
+          timeout: 500,
+        }}
       >
-        {body}
+        <Fade in={open}>
+          <div className={classes.paper}>
+            <h2 id="simple-modal-title">Create users</h2>
+            <Createusers manu="manu" />
+          </div>
+        </Fade>
       </Modal>
     </div>
   );
